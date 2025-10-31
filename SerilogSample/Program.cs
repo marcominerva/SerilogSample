@@ -4,7 +4,7 @@ using Serilog.Core;
 using Serilog.Debugging;
 using Serilog.Events;
 
-Environment.SetEnvironmentVariable("BASE_DIRECTORY", AppContext.BaseDirectory);
+Environment.SetEnvironmentVariable("BASE_DIRECTORY", Environment.GetEnvironmentVariable("HOME") ?? AppContext.BaseDirectory);
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((hostingContext, services, loggerConfiguration) =>
